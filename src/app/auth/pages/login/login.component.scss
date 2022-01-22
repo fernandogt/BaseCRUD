@@ -1,0 +1,34 @@
+#section {
+  text-align: center;
+  padding-top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#section>div {
+  border: 4px solid gold;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 16px 32px;
+  width: 330px;
+}
+
+#login-form {
+  padding: 0;
+  text-align: left;
+}
+
+@media (max-height: 415px) {
+#section > div {
+  width: 579px;
+}
+
+#logo-lince {
+  margin-right: 30px;
+}
+#logo-lince, #login-form {
+  float:left;
+}
+}

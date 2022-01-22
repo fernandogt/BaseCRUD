@@ -1,5 +1,5 @@
 
-<mat-grid-list cols="1">
+<!--<mat-grid-list cols="1">
     <mat-grid-tile>
         <button mat-raised-button 
                 color="primary"
@@ -14,5 +14,44 @@
             Ingresar sin login
         </button>
     </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list>-->
+
+
+<form id="login-form" class="p-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-header"><div class="form-title">Login</div></div>
+  <div class="form-content">
+    <div class="fieldset">
+      <div class="legend">Datos del usuario</div>
+      <div class="field-group">
+        <div class="field">
+          <label for="username">Usuario:</label>
+          <div id="username-fdg" class="field-data-group">
+            <input id="username" type="text" class="field-data" formControlName="username" size="20" autocomplete="off" autofocus="autofocus" />
+            <div id ="username-fe" *ngIf="submitted && loginForm.controls['username'].hasError('required')" class="field-error ui error message border border-danger rounded">
+                Requerido
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pwd">Contraseña:</label>
+          <div id="pwd-fdg" class="field-data-group">
+            <input id="pwd" type="password" class="field-data" size="20" formControlName="password"  autocomplete="off" />
+            <div id="pwd-fe" *ngIf="submitted && loginForm.controls['password'].hasError('required')" class="field-error ui error message border border-danger rounded">
+                Requerido
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-group">
+        <button class="button">Iniciar sesión</button>
+    </div>
+      <div *ngIf="submitted" class="ui error message border border-danger rounded">
+          Usuario y/o contraseña incorrectos
+      </div>
+      <div *ngIf="errorMessage" class="ui error message border border-danger rounded">
+          {{errorMessage}}
+      </div>
+  </div>
+</form>
 
