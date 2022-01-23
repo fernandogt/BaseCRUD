@@ -26,7 +26,7 @@
         <div class="field">
           <label for="username">Usuario:</label>
           <div id="username-fdg" class="field-data-group">
-            <input id="username" type="text" class="field-data" formControlName="username" size="20" autocomplete="off" autofocus="autofocus" />
+            <input id="username" type="text" class="field-data" formControlName="username" size="30" autocomplete="off" autofocus="autofocus" />
             <div id ="username-fe" *ngIf="submitted && loginForm.controls['username'].hasError('required')" class="field-error ui error message border border-danger rounded">
                 Requerido
             </div>
@@ -35,7 +35,7 @@
         <div class="field">
           <label for="pwd">Contraseña:</label>
           <div id="pwd-fdg" class="field-data-group">
-            <input id="pwd" type="password" class="field-data" size="20" formControlName="password"  autocomplete="off" />
+            <input id="pwd" type="password" class="field-data" size="15" formControlName="password"  autocomplete="off" />
             <div id="pwd-fe" *ngIf="submitted && loginForm.controls['password'].hasError('required')" class="field-error ui error message border border-danger rounded">
                 Requerido
             </div>
