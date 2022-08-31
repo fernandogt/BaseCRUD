@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { SingletonService } from 'src/app/singleton.service';
@@ -16,11 +16,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-    loginForm!: FormGroup;
+    loginForm!: UntypedFormGroup;
     submitted = false;
     validLogin = true;
     
-    constructor(private formBuilder: FormBuilder, private router: Router, private singletonService: SingletonService,) {
+    constructor(private formBuilder: UntypedFormBuilder, private router: Router, private singletonService: SingletonService,) {
         
     }
 

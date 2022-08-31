@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
-import { FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 
 import { Column } from 'src/app/helpers/datatable/models/column';
 import { SupergridInterface } from '../../interfaces/supergrid.interface';
@@ -51,7 +51,7 @@ export class SupergridComponent implements OnInit {
   
   message: string = "Hola Mundo!";
 
-  filterForm!: FormGroup;  // formulario del Filtrado
+  filterForm!: UntypedFormGroup;  // formulario del Filtrado
   selectedRow: any;  // variable contraladora del registro seleccionado
   anyExpandedRow = false; //  interruptor para controlar si esta abierto detalle de un registro 
   pageWithExpanded = false;  // idem para controlar que se cierre si se cambia de pagina
@@ -89,7 +89,7 @@ export class SupergridComponent implements OnInit {
   private initialHolderPosition: number | undefined; 
   private initialTableWidthPx: number | undefined;
  
-  constructor(private singletonService: SingletonService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private singletonService: SingletonService, private route: ActivatedRoute, private router: Router, private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     console.log('INICIA');
@@ -261,7 +261,7 @@ getDatatableData(url: string): void {
     } else {
       this.tablaWidth = '69.4%';
     }
-    if (this.cSection.table.rows !== []) {
+    if (this.cSection.table.rows.length>0) {
       this.cSection.table.rows = [...this.cSection.table.rows];
     }
   }
@@ -300,7 +300,7 @@ getDatatableData(url: string): void {
     this.busqueda.nativeElement.value = '';
     this.tabla.recalculateDims();
 
-    if (this.cSection.table.rows !== []) {
+    if (this.cSection.table.rows.length>0) {
       this.cSection.table.rows = this.tabla._internalRows;
     }
   }
@@ -388,7 +388,7 @@ onMouseMove(event: MouseEvent | any): void {
 
     if (TABLA_WIDTH_PX > SECTION_CONTENT_WIDTH_PX * 0.25 && TABLA_WIDTH_PX < SECTION_CONTENT_WIDTH_PX * 0.85) {
       this.tablaWidth = TABLA_WIDTH_PX + 'px';
-      if (this.cSection.table.rows !== []) {
+      if (this.cSection.table.rows.length>0) {
         this.cSection.table.rows = [...this.cSection.table.rows];
       }
     }
