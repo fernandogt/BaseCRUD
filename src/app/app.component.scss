@@ -1,0 +1,19 @@
+#global {
+    background-color: #0e1e29;
+    /*#2e4c75;#004979*/
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
+
+#header {
+    height: 4rem;
+    width: 100%;
+}
+
+#content {
+    height: calc(100% - 4.7rem);
+    margin: 0 0.7rem;
+    z-index: 9999;
+}
