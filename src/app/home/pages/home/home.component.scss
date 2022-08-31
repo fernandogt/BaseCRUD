@@ -1,0 +1,391 @@
+#section {
+    background-color: #21395c;
+    /* #2e4c75 */
+    color: #fff;
+    height: 100%;
+    text-align: center;
+    overflow: auto;
+    width: 100%;
+}
+
+hr {
+    background-color: #ddd;
+    border: 0;
+    display: none;
+    height: 1px;
+    position: absolute;
+    width: 35%;
+}
+
+#logo-lince {
+    position: absolute;
+    top: calc(50% - 112px);
+    left: calc(50% - 112px);
+}
+
+#square {
+    /*border: 1px solid black;*/
+    position: relative;
+    top: 48px;
+    left: 0;
+    margin: 0;
+    height: 704px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 24px;
+    font-family: "Calibri";
+    color: rgb(255, 255, 255);
+    line-height: 3.4rem;
+    margin: 0 0 0.5rem;
+    height: 3rem;
+    text-decoration: underline;
+}
+
+h3 {
+    color: gold;
+    font-size: 16px;
+}
+
+.content {
+  text-align: left;
+}
+
+#gestion, #ingresos {
+  left: 170px;
+}
+
+#facturacion, #impagos {
+  left: 490px;
+}
+
+#cobros, #logistica {
+  right: 460px;
+}
+
+#pagos, #informes {
+  right: 140px;
+}
+
+#gestion, #facturacion, #cobros, #pagos {
+  top: 100px;
+}
+
+#ingresos, #impagos, #logistica, #informes {
+  top: 380px;
+}
+
+
+
+
+.block {
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 0.4rem;
+    position: absolute;
+    text-align: left;
+    width: 15rem;
+}
+
+.block>div {
+    /*height: 300px;*/
+    padding-bottom: 0;
+}
+
+.block:hover>h2 {
+    font-weight: bold;
+}
+
+.block>div>div {
+    display: block;
+    padding: 0;
+    text-align: center;
+    height: 2.8rem;
+}
+
+.block>div>div>div {
+    float: left;
+}
+
+.block>div>div>div>h3,
+.block>div>div>div>p {
+    margin: 0;
+    padding: 0 0.5rem;
+}
+
+p {
+    font-size: 0.7rem;
+}
+
+.block>div>div:hover {
+    border: 2px solid #ddd;
+}
+
+.block>div>div:hover>div {
+    padding-left: 2px;
+    padding-top: 2px;
+    border-radius: 3px;
+}
+
+.block>div>div:hover>div>h3 {
+    color: gold;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
+}
+
+.icon-frame {
+    cursor: pointer;
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-top: 5px;
+    height: 42px;
+    width: 42px;
+}
+
+.icon-frame:hover {}
+
+/*
+#top,
+#middle,
+#bottom {
+    height: 15.2rem;
+}
+
+#block1,
+#block3,
+#block5 {
+    float: left;
+    left: 20rem;
+}
+
+#block1 h2,
+#block3 h2,
+#block5 h2 {
+    text-align: left;
+}
+
+#block2 h2,
+#block4 h2,
+#block6 h2 {
+    text-align: right;
+}
+
+#block2,
+#block4,
+#block6 {
+    text-align: right;
+    float: right;
+    right: 20rem;
+}
+
+#block1>div>div>div,
+#block3>div>div>div,
+#block5>div>div>div {
+    text-align: left;
+    float: left;
+}
+
+#block2>div>div>div,
+#block4>div>div>div,
+#block6>div>div>div {
+    text-align: right;
+    float: right;
+}
+
+#icon1 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 0;
+}
+
+#icon2 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 1);
+}
+
+#icon3 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 2);
+}
+
+#icon4 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 3);
+}
+
+#icon5 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 4);
+}
+
+#icon6 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 5);
+}
+
+#icon7 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 6);
+}
+
+#icon8 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 7);
+}
+
+#icon9 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 8);
+}
+
+#icon10 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 9);
+}
+
+#icon11 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 10);
+}
+
+#icon12 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 11);
+}
+
+#icon13 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 12);
+}
+
+#icon14 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 13);
+}
+
+#icon15 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 14);
+}
+
+#icon16 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 15);
+}
+
+#icon17 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 16);
+}
+
+#icon18 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 17);
+}
+
+#icon19 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 18);
+}
+
+#icon20 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 19);
+}
+
+#icon21 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 20);
+}
+
+#icon22 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 21);
+}
+
+#icon23 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 22);
+}
+
+#icon24 {
+    background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 23);
+}
+
+#icon-ingresos-principales {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 0;
+}
+
+#icon-ingresos-ventas {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 1);
+}
+
+#icon-ingresos-adicionales{
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 2);
+}
+
+#icon-ingresos-rectificativas {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 3);
+}
+
+#icon-impagos-devoluciones {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 4);
+}
+
+#icon-impagos-acuerdos {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 5);
+}
+
+#icon-impagos-suspensiones {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 6);
+}
+
+#icon-impagos-cortes {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 7);
+}
+
+#icon-cobros-cajero {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 8);
+}
+
+#icon-cobros-transferencias {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 9);
+}
+
+#icon-cobros-tpv {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 10);
+}
+
+#icon-cobros-fraccionamientos {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 11);
+}
+
+#icon-pagos-proveedores {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 12);
+}
+
+#icon-pagos-pedidos {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 13);
+}
+
+#icon-pagos-comisiones {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 14);
+}
+
+#icon-pagos-reintegros {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 15);
+}
+
+#icon-consultas-clientes {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 16);
+}
+
+#icon-consultas-telefonia {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 17);
+}
+
+#icon-consultas-comunicaciones {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 22);
+}
+
+#icon-consultas-enlaces {
+  background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 23);
+}
+
+#icon-informes-documentos {
+background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 20);
+}
+
+#icon-informes-indicadores {
+background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 21);
+}
+
+#icon-informes-facturacion {
+background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 18);
+}
+
+#icon-informes-economicos {
+background: url('../../../assets/img/icons/iconos-sprite32.png') 0 calc(-32px * 19);
+}
+*/

@@ -1,0 +1,441 @@
+/*#menu > li > a {
+    color: #fff;
+    font-size: 1.1rem;
+}*/
+
+#nav > .active-link {
+  background-color: #1e2c45 !important;
+  border-bottom: 2px solid #def !important;
+}
+
+#nav > .active-link > a {
+  color: #def !important;
+}
+
+.dropdownmenu {
+    display: none;
+    background-color: #fff !important;
+    border-radius: 0 !important;
+    top: 3.8rem !important;
+    padding: 0.2rem 0 0.2rem 0 !important;
+}
+
+.dropdownmenu>li {
+    line-height: 1.7rem !important;
+    margin: 0 !important;
+    padding: 0.5rem 1.2rem !important;
+    height: 2.7rem !important;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdownmenu>li:hover {
+    background-color: #1e2c45 !important; /* 1e2c45 */
+    /* #2e4c75 */
+    cursor: pointer;
+}
+
+.dropdownmenu>li:last-child {
+    border: 0 !important;
+}
+
+#logo-lince-menu {
+    float: left;
+    margin: 0.5rem 1rem 0.5rem 0;
+}
+
+
+/*.dropdownmenu>li>div {
+     background-color: #2e4c75 !important;
+    border: 1px solid gold !important; 
+    float: left !important;
+    height: 26px;
+    width: 26px;
+    padding: 2px !important;
+}*/
+
+.dropdownmenu>li>img {
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    z-index: 999 !important;
+}
+
+.dropdownmenu>li>a {
+    font-family: 'Calibri', sans-serif !important;
+    color: #000;
+    margin-left: 1rem;
+    vertical-align: middle !important;
+}
+
+.dropdownmenu>li:hover>a {
+    color: gold !important;
+    text-decoration: none !important;
+}
+
+
+/*#nav>li:hover {
+    background-color: #7497c9;
+}*/
+
+#nav {
+    margin: 0;
+    height: 3rem;
+    list-style: none;
+    padding: 0 2rem 0 0;
+}
+
+#nav>li {
+    float: left;
+    padding: 0.5rem 1rem;
+}
+
+#nav>li:hover .dropdownmenu {
+    display: block;
+}
+
+.dropdownmenu:hover {
+    display: block;
+}
+
+#nav>li>a {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+#nav>li:hover {
+    background-color: #1e2c45;
+    cursor: pointer;
+}
+
+#nav>li:hover>a {
+    color: gold;
+}
+
+#menu-view .active-link {
+    border: 1px solid #aaa;
+    /*background-color: #132c50;*/
+    border-radius: 5px;
+    color: gold !important;
+}
+
+#menu {
+    border-bottom: 1px solid #aaa;
+    height: 100%;
+    line-height: 2.9rem;
+    padding: 0 1.8rem 0 0.8rem;
+    margin: 0 0.7rem;
+    position: relative;
+    width: calc(100% - 3rem);
+}
+
+#menu>a,
+#nav {
+    float: left;
+}
+
+#menu-view {
+    color: #fff;
+    float: left;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0.55rem 1rem 0.45rem 11.5rem;
+}
+
+#menu-view a {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.5rem;
+}
+
+#menu-open {
+    float: right;
+    margin: 0;
+    padding: 0.4rem 2.5rem 0 0;
+    width: 12rem;
+}
+
+#menu-open>a {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+#menu-final {
+    padding: 0.4rem 0;
+    float: right;
+}
+
+#menu-final a {
+  color: #fff;
+}
+
+@media (max-width: 1470px) {
+    #menu-view {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 1280px) {
+  #menu-open {
+      display: none;
+  }
+}
+
+
+/*.dropdownmenu:hover {
+
+}*/
+
+
+/*#dropdownBasic1:hover > .dropdownmenu {
+display:block;
+}*/
+
+/*#icon-menu-ingresos-principales {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 0;
+}
+
+#icon-menu-ingresos-ventas {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 1);
+}
+
+#icon-menu-ingresos-adicionales{
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 2);
+}
+
+#icon-menu-ingresos-rectificativas {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 3);
+}
+
+#icon-menu-impagos-devoluciones {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 4);
+}
+
+#icon-menu-impagos-acuerdos {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 5);
+}
+
+#icon-menu-impagos-suspensiones {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 6);
+}
+
+#icon-menu-impagos-cortes {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 7);
+}
+
+#icon-menu-cobros-cajero {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 8);
+}
+
+#icon-menu-cobros-transferencias {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 9);
+}
+
+#icon-menu-cobros-tpv {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 10);
+}
+
+#icon-menu-cobros-fraccionamientos {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 11);
+}
+
+#icon-menu-pagos-proveedores {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 12);
+}
+
+#icon-menu-pagos-pedidos {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 13);
+}
+
+#icon-menu-pagos-comisiones {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 14);
+}
+
+#icon-menu-pagos-reintegros {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 15);
+}
+
+#icon-menu-consultas-clientes {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 16);
+}
+
+#icon-menu-consultas-telefonia {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 17);
+}
+
+#icon-menu-consultas-comunicaciones {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 22);
+}
+
+#icon-menu-consultas-enlaces {
+    background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 23);
+}
+
+#icon-menu-informes-documentos {
+  background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 20);
+}
+
+#icon-menu-informes-indicadores {
+  background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 21);
+}
+
+#icon-menu-informes-facturacion {
+background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 18);
+}
+
+#icon-menu-informes-economicos {
+background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px * 19);
+}
+
+*/
+
+.dropdownmenu>li:hover>#icon-menu-0 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 0 !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-1 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 1) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-2{
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 2) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-3 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 3) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-4 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 4) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-5 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 5) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-6 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 6) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-7 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 7) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-8 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 8) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-9 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 9) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-10 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 10) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-11 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 11) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-12 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 12) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-13 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 13) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-14 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 14) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-15 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 15) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-16 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 16) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-17 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 17) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-18 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 18) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-19 {
+  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 19) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-20 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 20) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-21 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 21) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-22 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 18) !important;
+}
+
+.dropdownmenu>li:hover>#icon-menu-23 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 19) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-24 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 24) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-25 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 25) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-26{
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 26) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-27 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 27) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-28 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 28) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-29 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 29) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-30 {
+background: url('/srcassets/img/icons/iconos-sprite20.png') 0 calc(-20px * 30) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-31 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 31) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-32 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 32) !important;
+}
+.dropdownmenu>li:hover>#icon-menu-33 {
+background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 33);
+}
+
+
+
+
+.block {
+  background-color: white;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+}
+
+.viewRow {
+  background-color: white;
+  border: 0.1rem #0e1e29 solid;
+  /*border-radius: 9px;*/
+  top: 275px;
+  left: 27.5%;
+  position: absolute;
+  width: 45%;
+  z-index: 999;
+}

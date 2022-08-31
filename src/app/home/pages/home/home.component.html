@@ -1,0 +1,112 @@
+<div id="section">
+  <div id="square">
+    <img id="logo-lince" src="../../../assets/img/logo-lince.png">
+
+    <div *ngFor="let m of menu" [id]="m.name" class="block">
+      <h2>{{ m.title }}</h2>
+      <div>
+        <div *ngFor="let submenu of m.submenus;" [routerLink]="['/' + m.name + '/' + submenu.name]">
+          <div class="icon-frame">
+              <div [id]="'icon-' + submenu.name" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-32px * ' + submenu.icon + ')') }"></div>
+          </div>
+          <div class="content">
+            <h3>{{ submenu.title }}</h3>
+            <p>{{ submenu.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!--<div id="top">
+            <div id="block1" class="block">
+                <h2>INGRESOS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[0].submenus;" [routerLink]="['/' + menu[0].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + menu[0].name + '-' + submenu.name" class="icon"></div>
+                    </div>
+                    <div>
+                      <h3>{{ submenu.title }}</h3>
+                      <p>{{ submenu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="block2" class="block">
+                <h2>IMPAGOS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[1].submenus;" [routerLink]="['/' + menu[1].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + menu[1].name + '-' + submenu.name" class="icon"></div>
+                    </div>
+                    <div>
+                      <h3>{{ submenu.title }}</h3>
+                      <p>{{ submenu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="middle">
+            <div id="block3" class="block">
+                <h2>COBROS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[2].submenus;"  [routerLink]="['/' + menu[2].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + menu[2].name + '-' + submenu.name" class="icon"></div>
+                    </div>
+                    <div>
+                      <h3>{{ submenu.title }}</h3>
+                      <p>{{ submenu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div id="block4" class="block">
+                <h2>PAGOS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[3].submenus;" [routerLink]="['/' + menu[3].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + menu[3].name + '-' + submenu.name" class="icon"></div>
+                    </div>
+                    <div>
+                      <h3>{{ submenu.title }}</h3>
+                      <p>{{ submenu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="block5" class="block">
+                <h2>CONSULTAS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[4].submenus;" [routerLink]="['/' + menu[4].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + menu[4].name + '-' + submenu.name" class="icon"></div>
+                    </div>
+                    <div>
+                      <h3>{{ submenu.title }}</h3>
+                      <p>{{ submenu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="block6" class="block">
+                <h2>INFORMES</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[5].submenus;" [routerLink]="['/' + menu[5].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + menu[5].name + '-' + submenu.name" class="icon"></div>
+                    </div>
+                    <div>
+                      <h3>{{ submenu.title }}</h3>
+                      <p>{{ submenu.description }}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>-->
+  </div>
+</div>

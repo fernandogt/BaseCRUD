@@ -1,0 +1,18 @@
+<div class="minigrid" [ngStyle]="{ 'width': cSection.width }">
+    <div id="title">{{cSection.tableTitle}}</div>
+    <ngx-datatable #datatable class="datatable material expandable minigrid-datatable" [count]="cSection.table.count" [columnMode]="cSection.table.columnMode" [cssClasses]="cSection.table.cssClasses" [externalPaging]="cSection.table.externalPaging" [externalSorting]="cSection.table.externalSorting"
+        [footerHeight]="cSection.table.footerHeight" [headerHeight]="cSection.table.headerHeight" [messages]="cSection.table.messages" [limit]="cSection.table.limit" [loadingIndicator]="cSection.table.loadingIndicator" [offset]="cSection.table.offset" [reorderable]="cSection.table.reorderable"
+        [rowHeight]="cSection.table.rowHeight" [rows]="cSection.table.rows" [scrollbarH]="cSection.table.scrollbarH" [scrollbarV]="cSection.table.scrollbarV" [selected]="cSection.table.selected" [selectionType]="cSection.table.selectionType" [summaryHeight]="cSection.table.summaryHeight"
+        [summaryPosition]="cSection.table.summaryPosition" [summaryRow]="cSection.table.summaryRow" [selectAllRowsOnPage]="false" (select)="onSelect($event)" (sort)="onSort()">
+
+        <ngx-datatable-column *ngFor="let column of cSection.table.columns" [name]="column.name" [prop]="column.prop" [flexGrow]="column.flexGrow" [minWidth]="column.visible ? column.minWidth : 0" [maxWidth]="column.maxWidth" [width]="column.visible ? column.width : 0"
+            [resizeable]="column.resizeable" [sortable]="column.sortable" [summaryFunc]="column.summaryFunc" [draggable]="column.draggable" [canAutoResize]="column.canAutoResize" [frozenLeft]="column.frozenLeft" [frozenRight]="column.frozenRight" [pipe]="column.pipe"
+            [cellClass]="column.visible ? column.cellClass : 'hide'" [headerClass]="column.visible ? column.cellClass : 'hide'">
+            <ng-template let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <div #card class="datatableRow" (click)="onSel(rowIndex)" (dblclick)="viewRow = true;" data-index="rowIndex">
+                    {{ value }}
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

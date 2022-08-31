@@ -1,0 +1,21 @@
+#section {
+    text-align: center;
+    height: 100%;
+    z-index: 1000;
+}
+
+#section>div {
+    border: 4px solid gold;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 5rem auto;
+    padding: 1rem 2rem;
+    position: relative;
+    top: 3rem;
+    width: 22rem;
+}
+
+#login-form {
+    padding: 1rem 0;
+    text-align: left;
+}

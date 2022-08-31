@@ -1,0 +1,367 @@
+<div  #container id="section" (window:resize)="onResize($event)" (mouseMove)="onMouseMove($event)" [ngClass]="{'blur': modal || showAdvert || viewRow }" class="no-select">
+    <!-- CABECERA PAG -->
+    <div id="section-header">
+        <!-- Titulo y navegador-->
+        <div id="section-logo">
+            <div id="section-logo-img">
+                <div [ngStyle]="{'background': (cSection.iconUrl + ' 0 calc(-32px * ' +  cSection.icon + ')') }"></div>
+            </div>
+        </div>
+        <h1 id="section-title">{{cSection.title}}</h1>
+        <div id="section-keypad">
+            <div id="s-keypad-crud">
+                <img id="keypad-img1" alt="A" src="../../../assets/aaics/baseline_add_black_24dp.png" height="38" width="38" title="Añadir" class="keypad-icon" />
+                <img id="keypad-img2" alt="M" src="../../../assets/aaics/baseline_create_black_24dp.png" height="38" width="38" title="Modificar" class="keypad-icon"  />
+                <img id="keypad-img3" alt="E" src="../../../assets/aaics/baseline_remove_black_24dp.png" height="38" width="38" title="Eliminar" class="keypad-icon" />
+                <img id="keypad-img4" alt="V" src="../../../assets/aaics/baseline_visibility_black_24dp.png" height="38" width="38" title="Ver" class="keypad-icon" />
+            </div>
+            <div id="s-keypad-navigator">
+                <img id="keypad-img5" alt="|&lt;" src="../../../assets/aaics/baseline_first_page_black_24dp.png" height="38" width="38" (click)="changeRegister('first');" title="Primer registro" class="keypad-icon" />
+                <img id="keypad-img6" alt="&lt;" src="../../../assets/aaics/baseline_chevron_left_black_24dp.png" height="38" width="38" (click)="changeRegister('previous');" title="Anterior registro" class="keypad-icon" />
+                <img id="keypad-img7" alt="&gt;" src="../../../assets/aaics/baseline_chevron_right_black_24dp.png" height="38" width="38" (click)="changeRegister('next');" title="Siguiente registro" class="keypad-icon" />
+                <img id="keypad-img8" alt="&gt;|" src="../../../assets/aaics/baseline_last_page_black_24dp.png" height="38" width="38" (click)="changeRegister('last');" title="Último registro" class="keypad-icon" />
+            </div>
+            <div id="s-keypad-abeliano">
+                <img id="keypad-img9" alt="E" src="../../../assets/aaics/baseline_view_comfy_black_24dp.png" height="38" width="38" (click)="generateExcel()" title="Generar Excel" class="keypad-icon" />
+                <img id="keypad-img10" alt="P" src="../../../assets/aaics/baseline_picture_as_pdf_black_24dp.png" height="38" width="38" (click)="generatePdf(1)" title="Generar PDF" class="keypad-icon" />
+                <img id="keypad-img11" alt="I" src="../../../assets/aaics/baseline_local_printshop_black_24dp.png" height="38" width="38" (click)="generatePdf(0)" title="Imprimir" class="keypad-icon" />
+                <img id="keypad-img12" alt="R" src="../../../assets/aaics/baseline_ballot_black_24dp.png" height="38" width="38" (click)="loadGraficas();" title="Gráficas" class="keypad-icon" />
+            </div>
+        </div>
+        <!--busqueda rapida -->
+        <div id="section-search" class="row buscar">
+            <div id="s-keypad-abeliano2">
+                <img id="search-img1" alt="B" src="../../../assets/aaics/baseline_search_black_24dp.png" height="35" width="35" class="search-icon" />
+            </div>
+            <select #combo class="form-control form-control-sm" (change)="onSelectSearch(combo.value);" [attr.disabled]="(mostrarFiltrado) ? 'disabled' : null">
+                <option value="empty">Búsqueda por...</option>
+                <option *ngFor="let option of cSection.search" [value]="option.prop + ',' + option.placeholder">{{ option.label }}</option>
+            </select>
+            <input #busqueda type="text" class="form-control form-control-sm" autocomplete="off" title="Buscar" id="exampleFormControlInput1" [placeholder]="searchPlaceholder(combo.value)" [attr.disabled]="(!isSelectedSearch) ? 'disabled' : null" (keyup)="filtroBusqueda(busqueda.value, combo.value)">
+            <div id="s-keypad-abeliano3">
+                <img id="search-img2" alt="F" src="../../../assets/aaics/baseline_filter_list_black_24dp.png" height="34" width="34" (click)="changeFiltrado(false);" title="Filtrar" class="search-icon" />
+                <img id="search-img3" alt="F5" src="../../../assets/aaics/baseline_cached_black_24dp.png" height="34" width="34" title="Refrescar datos" class="search-icon" (click)="onFilter(filter, true);" />
+                <img id="search-img4" alt="C" src="../../../assets/aaics/baseline_view_week_black_24dp.png" height="34" width="34" title="Seleccionar columnas" (click)="changeModal()" class="search-icon" />
+            </div>
+        </div>
+    </div>
+
+    <!-- filtrado-->
+    <form id="filter" *ngIf="cargarFiltrado" [formGroup]="filterForm" [ngStyle]="{'display': mostrarFiltrado ? 'flex' : 'none'}" (ngSubmit)="onSubmitFilter()">
+        <div class="field-group">
+            <div class="field" *ngFor="let field of cSection.filterFields">
+                <label>{{field.label}}</label>
+                <div class="field-data-group">
+                    <ng-container [ngSwitch]="field.type">
+                        <div class="datapicker-group" *ngSwitchCase="'f'">
+                            <input class="field-data datapicker-input" type="text" [formControlName]="field.param" size="8" placerholder="dd/mm/yyyy" maxlength="10" ngbDatepicker #fd="ngbDatepicker" [minDate]="{day: 1, month: 1, year: 2000}" [maxDate]="{day: 31, month: 12, year: 2099}"
+                                readonly="readonly" />
+                            <div class="input-group-append">
+                                <button class="datapicker-button btn btn-outline-secondary" style="padding: 0 2px;" (click)="fd.toggle()" type="button"><img height="10" width="10" src="/assets/img/cldr.png" /></button>
+                            </div>
+                        </div>
+                        <input *ngSwitchCase="'n'" [id]="field.param" class="field-data" [ngClass]="{'field-data-error': isInvalid(field.param)}" type="number" [formControlName]="field.param" autocomplete="off" />
+                        <select *ngSwitchCase="'c'" [id]="field.param" class="field-data" [ngClass]="{'field-data-error': isInvalid(field.param)}" [formControlName]="field.param">
+                                  <option  *ngFor="let option of field.list" [value]="option.value">{{option.text}}</option>
+                                </select>
+                        <input *ngSwitchDefault [id]="field.param" class="field-data" [ngClass]="{'field-data-error': isInvalid(field.param)}" type="text" [formControlName]="field.param" autocomplete="off" />
+                    </ng-container>
+                    <div class="field-data-error">Error</div>
+                </div>
+            </div>
+        </div>
+        <div class="button-group">
+            <div class="button-field">
+                <input class="button" type="submit" [ngStyle]="{'border': (filterForm.invalid) ? '3px solid red' : '1px solid gold', 'cursor': (filterForm.invalid) ? 'auto': 'pointer'}" value="Cargar Datos" />
+            </div>
+        </div>
+    </form>
+
+    <!-- CUERPO DE LA SECCION-->
+    <div #sectionContent id="section-content" [ngStyle]="{'height': mostrarFiltrado ? 'calc(100% - 8.6rem)' : 'calc(100% - 5rem)'}">
+        <!-- CUADRICULA-->
+        <div id="table" #table [ngStyle]="{'width': tablaWidth}">
+            <!-- barra titulo -->
+            <div id="table-header">{{cSection.tableTitle}} {{cSection.name === 'Comisiones' ? '&nbsp;&nbsp;(Periodo: ' + (filter.fd | fecha) + ' - ' + (filter.fh | fecha) + ')' : ''}}
+                <div class="custom-control custom-switch" style="float: left; padding: 0.2rem 0 0 0; height: 35px;">
+
+                    <input type="checkbox" class="custom-control-input" id="cstomSwitch1" [checked]="mode" (change)="changeMode(busqueda.value, combo.value);" [attr.disabled]="this.mostrarFiltrado ? 'disabled' : null" style="margin: 0.5rem 0;">
+                    <label class="custom-control-label" for="cstomSwitch1" style="position: relative; left: 3rem; font-weight: normal;"></label>
+                    <label for="cstomSwitch1" style="position: relative; left: 3rem; top: -0.4rem; font-weight: normal;">Selección</label>
+                </div>
+                <div class="custom-control custom-switch" style="float: right; padding: 0.2rem 0 0 0; height: 35px;">
+                    <label style="position: relative; left: -43px; top: -7px; font-weight: normal;">Totales</label>
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1" style="margin: 0.5rem 0;" [checked]="cSection.table.summaryRow" (change)="cSection.table.summaryRow = !cSection.table.summaryRow">
+                    <label class="custom-control-label" for="customSwitch1"></label>
+                </div>
+
+                <!--<span class="switch" style="float: right;"><input type="checkbox" class="switch" id="switch-id">
+                    <label for="switch-id">Small switch</label>
+                </span>-->
+            </div>
+            <!-- TABLA-->
+            <ngx-datatable id="datatable" #datatable class="datatable material expandable" [count]="cSection.table.count" [columnMode]="cSection.table.columnMode" [cssClasses]="cSection.table.cssClasses" [externalPaging]="cSection.table.externalPaging" [externalSorting]="cSection.table.externalSorting"
+                [footerHeight]="cSection.table.footerHeight" [headerHeight]="cSection.table.headerHeight" [messages]="cSection.table.messages" [limit]="cSection.table.limit" [loadingIndicator]="cSection.table.loadingIndicator" [offset]="cSection.table.offset"
+                [reorderable]="cSection.table.reorderable" [rowHeight]="cSection.table.rowHeight" [rows]="cSection.table.rows" [scrollbarH]="cSection.table.scrollbarH" [scrollbarV]="cSection.table.scrollbarV" [selected]="cSection.table.selected" [selectionType]="cSection.table.selectionType"
+                [summaryHeight]="cSection.table.summaryHeight" [summaryPosition]="cSection.table.summaryPosition" [summaryRow]="cSection.table.summaryRow" [selectAllRowsOnPage]="false" (page)="onPage()" (select)="onSelect($event)" (sort)="onSort()">
+
+                <!-- Row Detail Template (DESPLEGABLE) -->
+
+                <!--
+                <ng-content *ngFor="let minigrid of minigrids">
+                    <app-minigrid [datos]="minigrid.datos"></app-minigrid>
+                </ng-content>
+
+                <app-minigrid #minigrid1 [datos]="minigrid.datos"></app-minigrid>
+              -->
+
+
+                <ngx-datatable-row-detail [rowHeight]="280" #myDetailRow>
+                    <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                        <div id="sg-row-detail">
+                            <div>
+                                <app-minigrid class="minigrid" *ngFor="let mini1 of cSection.detailCol1" [cSection]="mini1"></app-minigrid>
+                                <div class="link-container">
+                                    <div *ngFor="let link1 of cSection.link1" [ngStyle]="{ 'text-align': cSection.alignLink1 }">{{link1.label}} <a [routerLink]="link1.url">{{link1.text}}</a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <app-minigrid class="minigrid" *ngFor="let mini2 of cSection.detailCol2" [cSection]="mini2"></app-minigrid>
+                                <div class="link-container">
+                                    <div *ngFor="let link2 of cSection.link2" [ngStyle]="{ 'text-align': cSection.alignLink2 }">{{link2.label}} <a [routerLink]="link2.url">{{link2.text}}</a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <app-minigrid class="minigrid" *ngFor="let mini3 of cSection.detailCol3" [cSection]="mini3"></app-minigrid>
+                                <div class="link-container">
+                                    <div *ngFor="let link3 of cSection.link3" [ngStyle]="{ 'text-align': cSection.alignLink3 }">{{link3.label}} <a [routerLink]="link3.url">{{link3.text}}</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-template>
+                </ngx-datatable-row-detail>
+                <!-- COLUMNAS ESPECIALES -->
+                <!-- COLUMNA PARA DESPLEGAR -->
+                <!-- Column Templates -->
+                <ngx-datatable-column [width]="50" [resizeable]="false" [sortable]="true" [draggable]="false" [canAutoResize]="false" [name]="'^'">
+                    <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                        <a href="javascript:void(0)" [class.datatable-icon-right]="!expanded" [class.datatable-icon-down]="expanded" title="Expand/Collapse Row" (click)="toggleExpandRow(row, expanded);">
+                        </a>
+                    </ng-template>
+                </ngx-datatable-column>
+
+
+
+                <!-- COLUMNA DE SELECCION -->
+                <ngx-datatable-column *ngIf="!mode" [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false">
+                    <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected" let-selectFn="selectFn">
+                        <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+                        <input type="checkbox" [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />
+                    </ng-template>
+                </ngx-datatable-column>
+
+                <!-- RESTO DE COLUMNAS-->
+                <ngx-datatable-column *ngFor="let column of cSection.table.columns" [name]="column.name" [prop]="column.prop" [flexGrow]="column.flexGrow" [minWidth]="column.visible ? column.minWidth : 0" [maxWidth]="column.maxWidth" [width]="column.visible ? column.width : 0"
+                    [resizeable]="column.resizeable" [sortable]="column.sortable" [summaryFunc]="column.summaryFunc" [draggable]="column.draggable" [canAutoResize]="column.canAutoResize" [frozenLeft]="column.frozenLeft" [frozenRight]="column.frozenRight"
+                    [pipe]="column.pipe" [cellClass]="column.visible ? column.cellClass : 'hide'" [headerClass]="column.visible ? column.cellClass : 'hide'">
+                    <ng-template let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        <div #card (click)="onSel(rowIndex)" (dblclick)="viewRow = true;" data-index="rowIndex">
+                            {{ value }}
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+
+        <!-- SEPARADOR DE EN MEDIO-->
+        <div id="holder" (mousedown)="holderClick($event)" [ngStyle]="{'margin-right': !isShowingDetalle ? '0' : '0.4rem', 'cursor': !isShowingDetalle ? 'auto' : 'col-resize'}">
+            <div (click)="changeDetalle()" [ngClass]="{'holder-close': !isShowingDetalle}"></div>
+        </div>
+
+        <!-- DETALLE DE LA DERECHA -->
+        <div #detalle id="detail" [ngStyle]="{'display': !isShowingDetalle ? 'none' : 'block', 'width': 'calc(100% - 0.8rem - 8px - ' + tablaWidth + ')'}">
+            <!-- PARTE DE LA DERCHA ARRIBA -->
+            <div id="detail-header">{{cSection.detailTitle}}</div>
+            <div *ngIf="selectedRow" id="detail-content">
+                <div class="detail-fields">
+                    <div class="detail-fields-header">
+                        <div style="width: 41.67%">Campo</div>
+                        <div style="width: calc(58.33% - 2.5rem)">Descripción</div>
+                        <!----
+                          <div style="font-weight: bold; background-color: #fff; height: 1.9rem; text-align: center; width: 1.9rem" [ngSwitch]="cSection.name">
+                            <div *ngSwitchCase="'Contratos'">{{selectedRow.estado==='Activo' ? 'A' : 'N'}}</div>
+                            <div *ngSwitchCase="'Principales'">{{selectedRow.formaPago ? selectedRow.formaPago.substr(0,1) : ''}}</div>
+                            <div *ngSwitchCase="'Facturas'">{{selectedRow.formaPago ? selectedRow.formaPago.substr(0,1) : ''}}</div>
+                            <div *ngSwitchCase="'Adicionales'">{{selectedRow.prefijo ? selectedRow.prefijo.substr(0,2) : ''}}</div>
+                            <div *ngSwitchCase="'Rectificativas'">{{selectedRow.prefijo ? selectedRow.prefijo.substr(0,2) : ''}}</div>
+                            <div *ngSwitchCase="'Ventas'">{{selectedRow.prefijo ? selectedRow.prefijo.substr(0,2) : ''}}</div>
+                            <div *ngSwitchCase="'Cajero'">{{(selectedRow.concepto == 'Intradia') ? 'I' : 'D'}}</div>
+                            <div *ngSwitchCase="'Devoluciones'">{{selectedRow.observaciones ? (selectedRow.observaciones.startsWith('RECHAZO') ? 'R' : 'D') : ''}}</div>
+                            <div *ngSwitchCase="'Acuerdos'">{{(selectedRow.situacion === 'No Vencido') ? 'N' : 'V'}}</div>
+                            <div *ngSwitchCase="'Fraccionamientos'">{{(selectedRow.situacion === 'No Vencido') ? 'N' : 'V'}}</div>
+                            <div *ngSwitchCase="'Comisiones'">{{(selectedRow.tipoComisionID &gt;= 5 && selectedRow.tipoComisionID &lt;= 10) ? 'V' : 'F'}}</div>
+                            <div *ngSwitchCase="'ConsumoMovil'">{{(selectedRow.origen &gt;= 600000000 && selectedRow.origen &lt; 800000000) ? 'M' : 'F'}}</div>
+                            <div *ngSwitchCase="'Ordenes'">{{selectedRow.estado ? (selectedRow.estado.startsWith('Revisado') || selectedRow.estado.startsWith('Anulación') ? 'C' : 'A') : ''}}</div>
+                          </div>
+                         -->
+                    </div>
+                    <div class="detail-fields-content">
+                        <div *ngFor="let column of cSection.table.columns">
+                            <div *ngIf="column.visibleDetail" class="detail-fields-row row">
+                                <label [for]="column.prop" class="col-5">{{column.name}}</label>
+                                <input type="text " class="col-7 " [id]="column.prop" [value]="selectedRow[column.prop] !== undefined ? (column.pipe === undefined ? selectedRow[column.prop] : column.pipe.transform(selectedRow[column.prop])) : ''" disabled="disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div style="color: #2e4c75; font-size: 11px; font-weight: bold; text-align: right; padding-right: 0.2rem"><label style="border: none; background-color: transparent; color: #000; font-weight: normal !important;">{{cSection.detailLegend}}</label></div>-->
+                </div>
+
+                <!-- DERECHA ABAJO -->
+                <div *ngIf="selectedRow" class="detail-fields">
+                    <div *ngIf="!showMore" style="font-weight:normal; color: #16bef1; text-align: center; cursor: pointer;" (click)="showDetailData();">Ver más...</div>
+                    <div *ngIf="showMore">
+                      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                        <li ngbNavItem *ngFor="let tab of cSection.detailTabs">
+                          <a ngbNavLink>{{ tab.name }}</a>
+                          <ng-template ngbNavContent>
+                            <app-minigrid *ngFor="let miniT of tab.minigrids" [cSection]="miniT"></app-minigrid>
+                          </ng-template>
+                        </li>
+                      </ul>
+                      <div [ngbNavOutlet]="nav"></div>
+                        <!--<ngb-tabset>
+                            <ngb-tab *ngFor="let tab of cSection.detailTabs" [title]="tab.name">
+                                <ng-template ngbTabContent>
+                                    <app-minigrid *ngFor="let miniT of tab.minigrids" [cSection]="miniT"></app-minigrid>
+                                </ng-template>
+                            </ngb-tab>
+                        </ngb-tabset>-->
+                    </div>
+                </div>
+                <div class="detail-fields ">
+                    <div style="font-weight:bold; ">Enlaces de interés</div>
+                    <div class="detail-fields-header ">
+                        <div style="width: 50% ">Opción de la aplicación</div>
+                        <div style="width: 50% ">Enlace</div>
+                        <!--<div style="font-weight: bold; background-color: #fff; height: 2.5rem; text-align: center; width: 2.5rem "><span>{{(selectedRow.concepto == 'Intradia') ? 'I' : 'D'}}</span></div>-->
+                    </div>
+                    <div class="detail-fields-content ">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VENTANAS MODALES -->
+<div *ngIf="modal || showAdvert || viewRow || viewGraficas" id="block"></div>
+
+<!-- COLUMNAS-->
+<!-- MOSTRAR COLUMNAS-->
+<div *ngIf="modal" id="modal" class="emergente">
+    <!--<div class="ion-align-items-center" style="border-bottom: 1px solid #ddd; margin-bottom: 0.8rem;">Columnas a mostrar:</div>-->
+    <div class="form-buttons row col-12" style="background-color: #def; margin:0 0 0.5rem 0; border-bottom: 1px solid #ddd;">
+        <h4>Configuración de Columnas:</h4>
+    </div>
+    <div class="row mx-3 p-0" style="border: 2px solid gold; border-bottom: none;">
+        <div *ngFor="let title of [0,1]" class="col-6 row m-0 p-0" style="font-weight: bold; margin: 0; padding: 0 0 0 0; line-height: 1.2rem;">
+            <div class="col-5">Nombre columna</div>
+            <div class="col-7 row m-0 b-0" style="font-size: 0.7rem;">
+                <label class="col-4">Fijar Izq</label>
+                <label class="col-4">Sin fijar</label>
+                <label class="col-4">Fijar Dcha</label>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-3 p-0" style="border: 2px solid gold">
+        <div *ngFor="let column of this.cSection.table.columns;" class="col-6 row m-0 p-0" style="border-left: 1px solid #ddd; border-top: 1px solid #ddd; margin: 0; padding: 0 0 0 0;  line-height: 1.5rem;">
+            <div class="col-5">
+                <input type="checkbox" [id]="column.name" (click)="toggle(column)" [checked]="column.visible" style="margin-right: 0.4rem" />
+                <label [attr.for]="column.name ">{{ column.name }}</label>
+            </div>
+            <div class="col-7 row m-0" style="padding: 0; padding-top: 0.4rem">
+                <input class="col-4 p-1" *ngIf="column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedLeft') ? 'checked' : null" value="pinnedLeft" (click)="changePinned(column, 'pinnedLeft')">
+                <input class="col-4 p-1" *ngIf="column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedOff') ? 'checked' : null" value="pinnedOff" (click)="changePinned(column, 'pinnedOff')">
+                <input class="col-4 p-1" *ngIf="column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedRight') ? 'checked' : null" value="pinnedRight" (click)="changePinned(column, 'pinnedRight')">
+            </div>
+        </div>
+    </div>
+    <div class="form-buttons col-12" style="padding-top: 0.8rem; border-top: 1px solid #ddd; margin:1.2rem 0 0.5rem 0;">
+
+        <button type="submit" class="btn btn-info" (click)="changeModal();" style="position: relative; left: calc(50% - 2.5rem); width: 5rem;">Cerrar</button>
+
+    </div>
+</div>
+
+<!-- PRUEBAS COLUMNAS-->
+<div *ngIf="pinnedController" id="pinnedController" class="emergente">
+    <div class="ion-align-items-center" style="color:#2e4c75; font-weight: bold; border-bottom: 1px solid #ddd; margin-bottom: 0.8rem;">Columnas a fijar:</div>
+    <table id="pinnedTable">
+        <tr>
+            <th>Nombre columna</th>
+            <th style="text-align: center;">Izquierda</th>
+            <th style="text-align: center;">Sin fijar</th>
+            <th style="text-align: center;">Derecha</th>
+        </tr>
+        <tr *ngFor="let column of this.cSection.table.columns;" [ngStyle]="{'display': column.visible ? 'table-row' : 'none'}">
+            <td><label [attr.for]="column.name ">{{ column.name }}</label></td>
+            <td style="text-align: center;"><input type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedLeft') ? 'checked' : null" value="pinnedLeft" (click)="changePinned(column, 'pinnedLeft')"></td>
+            <td style="text-align: center;"><input type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedOff') ? 'checked' : null" value="pinnedOff" (click)="changePinned(column, 'pinnedOff')"></td>
+            <td style="text-align: center;"><input type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedRight') ? 'checked' : null" value="pinnedRight" (click)="changePinned(column, 'pinnedRight')"></td>
+        </tr>
+        <!--<div *ngFor="let column of this.cSection.table.columns; let odd = odd; let even = even;">
+    <div style="float: left; width: 50%">
+      <label *ngIf="even && column.visible" [attr.for]="column.name ">{{ column.name }}</label>
+      <input *ngIf="even && column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedLeft') ? 'checked' : null" value="pinnedLeft" (click)="changePinned(column, 'pinnedLeft')">
+      <input *ngIf="even && column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedOff') ? 'checked' : null" value="pinnedOff" (click)="changePinned(column, 'pinnedOff')">
+      <input *ngIf="even && column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedRight') ? 'checked' : null" value="pinnedRight" (click)="changePinned(column, 'pinnedRight')">
+    </div>
+    <div style="float: right; width: 50%">
+      <label *ngIf="odd && column.visible" [attr.for]="column.name ">{{ column.name }}</label>
+      <input *ngIf="odd && column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedLeft') ? 'checked' : null" value="pinnedLeft" (click)="changePinned(column, 'pinnedLeft')">
+      <input *ngIf="odd && column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedOff') ? 'checked' : null" value="pinnedOff" (click)="changePinned(column, 'pinnedOff')">
+      <input *ngIf="odd && column.visible" type="radio" [id]="'radio-' + column.name" [name]="column.name" [attr.checked]="(isPinned(column) === 'pinnedRight') ? 'checked' : null" value="pinnedRight" (click)="changePinned(column, 'pinnedRight')">
+    </div>
+</div>-->
+    </table>
+    <div class="form-buttons row" style="padding-top: 0.8rem; border-top: 1px solid #ddd;">
+        <button id="cerrar-button" type="submit" class="btn btn-danger" (click)="pinnedController = false;">Cerrar</button>
+    </div>
+</div>
+
+<!-- VER REGISTROS ZOOM-->
+<div *ngIf="viewRow && cSection.name !== 'Ordenes' && cSection.name !== 'PrefacturaLince' && cSection.name !== 'ConsumoMovil'" id="viewRow" class="viewRow">
+    <form>
+        <div class="form-buttons row col-12" style="background-color: #def; margin:0 0 0.5rem 0; border-bottom: 1px solid #ddd;">
+            <h4>Datos del registro</h4>
+        </div>
+        <div class="row" style="margin: 0;">
+            <div *ngFor="let column of cSection.table.columns; first as isFirst" class="row col-6" [ngStyle]="{'display': (column.visibleDetail) ? 'block-inline' : 'none'}" style="margin: 0; padding: 0.4rem 2rem 0 2rem;">
+                <!--<div *ngIf="column.visibleDetail" class="row">-->
+                <label [for]="column.prop" class="col-6" style="font-weight: bold; padding-left: 0">{{column.name}}</label>
+                <input type="text" class="col-6 " [id]="column.prop" [name]="column.prop" [value]="(column.pipe === undefined ? selectedRow[column.prop] : column.pipe.transform(selectedRow[column.prop]))">
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="viewRow-buttons" style="margin:1rem 0 0 0; border-top: 1px solid #ddd;">
+            <button type="submit" class="btn btn-success" (click)="viewRow = false;" style="width: 6rem; margin-right: 1.2rem" autofocus="autofocus">Aceptar</button>
+            <button type="button" class="btn btn-danger" (click)="viewRow = false;" style="width: 6rem;">Cancelar</button>
+        </div>
+    </form>
+</div>
+<!--<app-ordenes-crud *ngIf="viewRow && cSection.name === 'Ordenes'" (closeCrud)="onSubmitCrud($event);" [sectionTitle]="cSection.title" [crudMode]="crudMode" [selectedRow]="selectedRow"></app-ordenes-crud>
+<app-prefacturalince-crud *ngIf="viewRow && cSection.name === 'PrefacturaLince'" (refrescar)="onFilter(filter, true)" (closeCrud)="onSubmitCrud($event);" [sectionTitle]="cSection.title" [crudMode]="crudMode" [selectedRow]="selectedRow"></app-prefacturalince-crud>
+<app-cdr-crud *ngIf="viewRow && cSection.name === 'ConsumoMovil'" (closeCrud)="onSubmitCrud($event);" [sectionTitle]="cSection.title" [crudMode]="crudMode" [selectedRow]="selectedRow"></app-cdr-crud>
+
+
+<app-ordenes-graficas *ngIf="viewGraficas && cSection.name === 'Ordenes'" (closeCrud)="onSubmitGraficas($event);"></app-ordenes-graficas>
+<app-clientes-graficas *ngIf="viewGraficas && cSection.name === 'Contratos'" (closeCrud)="onSubmitGraficas($event);"></app-clientes-graficas>-->
+<!-- LOADING-->
+<div *ngIf="showAdvert" id="advert">
+    <img alt="icono cargando" src="../../../assets/img/loading.gif" />
+    <div>Cargando...</div>
+</div>

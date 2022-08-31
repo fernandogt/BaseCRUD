@@ -1,0 +1,50 @@
+#title {
+    border-bottom: 1px solid #888;
+    background-color: #ededed!important;
+    padding: 2px 3px;
+    font-size: 14px;
+}
+
+:host ::ng-deep .datatable-header-cell {
+    border-bottom: 1px solid #aaa;
+    color: black !important;
+}
+
+:host ::ng-deep .datatable-header-cell-label {
+    font-weight: bold;
+    font-size: 11px !important;
+}
+
+:host ::ng-deep .datatable-row-even,
+ :host ::ng-deep .datatable-row-odd {
+    background-color: white !important;
+}
+
+:host ::ng-deep .ngx-datatable.material {
+    box-shadow: none;
+}
+
+.datatableRow {
+    font-size: 11px !important;
+}
+
+:host ::ng-deep .negrita {
+    font-weight: bold !important;
+}
+
+:host ::ng-deep .tar {
+    text-align: right !important;
+}
+
+.minigrid {
+    border: 1px solid #888;
+}
+
+.minigrid-datatable {
+    height: 185px !important;
+}
+
+:host ::ng-deep .datatable-summary-row,
+ :host ::ng-deep .datatable-body-cell {
+    font-size: 11px !important;
+}

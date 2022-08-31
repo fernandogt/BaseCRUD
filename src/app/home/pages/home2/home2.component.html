@@ -1,0 +1,105 @@
+<div id="section">
+    <div id="square">
+        <!--<hr style="top: 12rem; transform:rotate(20deg);" />
+      <hr style="top: 30rem; transform:rotate(-20deg);" />
+      <hr style="top: 12rem; right: 0; transform:rotate(-20deg);" />
+      <hr style="top: 30rem; right: 0; transform:rotate(20deg);" />
+      <hr style="top: 5rem; left: 32rem; transform:rotate(90deg); width: 16%" />
+      <hr style="bottom: 5rem; left: 32rem; transform:rotate(90deg); width: 16%" />
+      <hr style="top: 12rem; transform:rotate(20deg);" />-->
+
+        <hr style="top: 172px; transform:rotate(10deg);" />
+        <hr style="top: 340px; left: -60px; transform:rotate(0deg);" />
+        <hr style="top: 532px; transform:rotate(-10deg);" />
+        <hr style="top: 172px; right: 0; transform:rotate(-10deg);" />
+        <hr style="top: 340px; right: -60px; transform:rotate(0deg);" />
+        <hr style="top: 532px; right: 0; transform:rotate(10deg);" />
+        <hr style="top: 80px; left: 512px; transform:rotate(90deg); width: 16%" />
+        <hr style="bottom: 80px; left: 512px; transform:rotate(90deg); width: 16%" />
+        <img id="logo-lince" src="../../../assets/img/logo-lince.png">
+        <div *ngFor="let m of menu" [id]="m.name" class="block">
+            <h2>{{m.title}}</h2>
+            <div>
+                <div *ngFor="let submenu of m.submenus;" [routerLink]="['/' + m.name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                    </div>
+                    <h3>{{ submenu.title }}</h3>
+                </div>
+            </div>
+        </div>
+        <!--<div id="top">
+            <div id="block1" class="block">
+                <h2>INGRESOS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[0].submenus;"  [routerLink]="['/' + menu[0].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                        <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                    </div>
+                    <h3>{{ submenu.title }}</h3>
+                  </div>
+                </div>
+            </div>
+            <div id="block2" class="block">
+                <h2>IMPAGOS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[1].submenus;"  [routerLink]="['/' + menu[1].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                      <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                    </div>
+                    <h3>{{ submenu.title }}</h3>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="middle">
+            <div id="block3" class="block">
+                <h2>COBROS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[2].submenus;"  [routerLink]="['/' + menu[2].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                      <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                    </div>
+                    <h3>{{ submenu.title }}</h3>
+                  </div>
+                </div>
+            </div>
+            <img id="logo-lince" src="../../../assets/img/logo-lince.png">
+            <div id="block4" class="block">
+                <h2>PAGOS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[3].submenus;"  [routerLink]="['/' + menu[3].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                      <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                    </div>
+                    <h3>{{ submenu.title }}</h3>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="block5" class="block">
+                <h2>CONSULTAS</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[4].submenus;" [routerLink]="['/' + menu[4].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                      <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                   </div>
+                    <h3>{{ submenu.title }}</h3>
+                  </div>
+                </div>
+            </div>
+            <div id="block6" class="block">
+                <h2>INFORMES</h2>
+                <div>
+                  <div *ngFor="let submenu of menu[5].submenus;" [routerLink]="['/' + menu[5].name + '/' + submenu.name]">
+                    <div class="icon-frame">
+                      <div [id]="'icon-' + submenu.icon" class="icon" [ngStyle]="{'background': (iconUrl + ' 0 calc(-40px * ' + submenu.icon + ')') }"></div>
+                    </div>
+                    <h3>{{ submenu.title }}</h3>
+                  </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>

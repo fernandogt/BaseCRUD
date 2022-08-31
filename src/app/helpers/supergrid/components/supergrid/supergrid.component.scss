@@ -1,0 +1,738 @@
+#section {
+    background-color: #def;
+    height: 100%;
+    padding: 0.7rem;
+    width: 100%;
+}
+
+#section-header {
+    background-color: #fff;
+    border: 0.12rem solid gold;
+    height: 4.8rem;
+    margin-bottom: 0.2rem;
+}
+
+#section-search,
+#section-title {
+    float: left;
+    height: 2.5rem;
+    margin: 1.15rem 0;
+}
+
+#section-logo {
+    float: left;
+    padding: 0.7rem 1.15rem;
+}
+
+#section-logo-img {
+    background-color: #004979;
+    height: 48px;
+    width: 48px;
+    border: 3px solid gold;
+    float: left;
+    padding: 0;
+}
+
+#section-logo-img>div {
+    margin: 5px;
+    height: 32px;
+    width: 32px;
+}
+
+#section-title {
+    color: #2e4c75;
+    float: left;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    width: calc(100% - 87.3rem);
+}
+
+#section-keypad {
+    float: left;
+    height: 4.55rem;
+    background-color: #f8f8f8;
+    border-left: 2px solid gold;
+    border-right: 2px solid gold;
+    padding: 1.15rem 0;
+    text-align: center;
+    width: 46.9rem;
+}
+
+#section-keypad>div {
+    display: inline-block;
+    padding: 0 0.8rem;
+}
+
+#section-keypad>div>img {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #2e4c75;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    float: left;
+    padding: 0.15rem;
+    line-height: 2.35rem;
+    list-style: none;
+    margin-left: 0.35rem;
+}
+
+#s-keypad-abeliano2>img {
+    background-color: rgb(246, 244, 244);
+    border: 2px solid gold;
+    color: #2e4c75;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    float: right;
+    line-height: 2.2rem;
+    list-style: none;
+    margin-left: 0.0rem;
+    text-align: center;
+}
+
+#s-keypad-abeliano3 {
+    padding: 0;
+    width: 8.2rem;
+}
+
+#s-keypad-abeliano3>img {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #2e4c75;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    float: right;
+    line-height: 2.1rem;
+    list-style: none;
+    text-align: center;
+    margin-left: 0.38rem;
+}
+
+#s-keypad-crud>img {
+    font-size: 30px;
+}
+
+#s-keypad-navigator>img {
+    font-size: 30px;
+}
+
+#s-keypad-abeliano>img {
+    font-size: 28px;
+}
+
+#section-search {
+    height: 2.3rem;
+    padding: 0 1rem 0 1.5rem;
+    width: 35.1rem;
+}
+
+#section-search>select {
+    height: 100%;
+    width: 30.0%;
+}
+
+#section-search>input {
+    height: 100%;
+    margin-left: 0.1rem;
+    width: calc(65% - 9rem);
+}
+
+
+
+#s-keypad-abeliano2 {
+  height: 2.1rem;
+  padding: 0;
+  text-align: center;
+  width: 1rem;
+}
+
+#filter {
+    background-color: rgb(233, 236, 239) !important;
+    border: 0.12rem solid gold;
+    /*height: 3.5rem;*/
+    padding: 0;
+    margin-bottom: 0.4rem;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8rem;
+}
+
+#filter>.field-group {
+    /*align-content: space-between;*/
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 0.2rem 0.15rem 0.2rem;
+    width: calc(100% - 5rem);
+}
+
+#filter>.button-group {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    background: #fff;
+    border-left: 2px solid gold;
+    padding: 0 0.2rem 0.15rem 0.2rem;
+    width: 10rem;
+}
+
+#filter .field,
+#filter .button-field {
+    padding: 0 0.2rem 0.17rem 0.2rem;
+}
+
+#filter .button {
+    background-color: rgb(35, 105, 151);
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    color: #fff;
+}
+
+#filter label {
+    margin-bottom: 0.1rem;
+    line-height: 0.8rem;
+}
+
+#filter .datapicker-group {
+    display: flex;
+    flex-direction: row;
+}
+
+#filter .field-data,
+#filter .datapicker-group,
+#filter .datapicker-button {
+    min-height: 1.5rem;
+    line-height: 1.1rem;
+}
+
+#filter .input-group-append {}
+
+#filter .field-data-error {
+    display: none;
+}
+
+#table,
+#detail {
+    background-color: #fff;
+    border: 2px solid gold;
+}
+
+#datatable {
+    box-shadow: none !important;
+    height: calc(100% - 39px);
+}
+
+#holder {
+    background-color: #ddd;
+    float: left;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding-top: 20rem;
+    margin-left: 0.4rem;
+    width: 7px;
+    z-index: 5;
+}
+
+#holder>div {
+    background-image: url('/src/assets/img/open.png');
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-left: -1px;
+    cursor: pointer;
+    height: 80px;
+    width: 7px;
+}
+
+#detail {
+    padding: 0;
+}
+
+#table-header,
+#detail-header {
+    background-color: #ccc;
+    border-bottom: 2px solid gold;
+    color: #222;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 35px;
+    padding: 0;
+    text-align: center;
+    line-height: 35px;
+}
+
+#detail-content {
+    height: calc(100% - 35px);
+    margin: 0 auto;
+    overflow-y: auto;
+    padding: 0;
+}
+
+#detail-content a {
+    margin: 0;
+    padding: 0;
+}
+
+#sg-row-detail {
+    padding-left: 2.7rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#sg-row-detail>div {
+    margin-left: 0.3rem;
+}
+
+.link-container {
+    background-color: #ededed;
+    border: 1px solid #888;
+    border-top: none;
+    font-size: 11px;
+    padding: 3px 5px;
+    height: 40px;
+}
+
+.detail-fields {
+    padding: 0.5rem;
+}
+
+.detail-fields-header {
+    background-color: #efefef;
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    height: 2.2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+.detail-fields-header>div {
+    float: left;
+    line-height: 1.9rem;
+    height: 1.9rem;
+}
+
+.detail-fields-header>div>div {
+    line-height: 1.9rem;
+}
+
+.detail-fields-content {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+}
+
+.detail-row .detail-fields-header {
+    font-size: 0.8rem;
+    height: 1.7rem;
+    font-weight: 500;
+    color: #2e4c75;
+}
+
+.detail-row .detail-fields-content {
+    height: 11.5rem;
+    overflow-y: auto;
+}
+
+.detail-row .detail-fields-header>div {
+    line-height: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.1rem;
+}
+
+.detail-row .detail-fields-row label,
+.detail-row .detail-fields-row input,
+.detail-row .detail-fields-row div {
+    padding: 0 5px;
+}
+
+.detail-row .detail-fields-row label {
+    font-size: 0.8rem !important;
+    font-weight: normal;
+}
+
+.detail-row .detail-fields-row input,
+.detail-row .detail-fields-row div {
+    background-color: transparent;
+    font-size: 0.7rem;
+}
+
+.detail-fields-content .ca {
+    height: 1.45rem;
+}
+
+.detail-fields-content .hist-ca {
+    display: flex;
+}
+
+.detail-fields-content .hist-ca label {
+    font-size: 0.75rem;
+}
+
+.detail-fields-content .hist-ca input,
+.detail-fields-content .hist-ca div {
+    font-size: 0.7rem;
+}
+
+.detail-fields-content .hist label,
+.detail-fields-content .ca label {
+    font-size: 0.85rem;
+}
+
+.detail-fields-content .hist input,
+.detail-fields-content .ca input,
+.detail-fields-content .hist div,
+.detail-fields-content .ca div {
+    font-size: 0.75rem;
+}
+
+.detail-fields-content .ca label,
+.detail-fields-content .ca input,
+.detail-fields-content .ca div,
+.detail-fields-content .hist-ca label,
+.detail-fields-content .hist-ca input,
+.detail-fields-content .hist-ca div {
+    padding-left: .7rem;
+}
+
+.detail-fields-row {
+    height: 1.6rem;
+    margin: 0;
+    padding: 0;
+}
+
+.detail-fields-row label,
+.detail-fields-row input,
+.detail-fields-row div {
+    background-color: transparent;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6rem;
+}
+
+.detail-fields-row label {
+    color: #2e4c75;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.detail-fields-row input,
+.detail-fields-row div,
+.detail-fields-row a {
+    font-size: 0.9rem;
+    border: none;
+    margin: 0;
+}
+
+.detail-fields-row div {
+    display: inline-block;
+    margin: 0;
+}
+
+.blur {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
+.advert {
+    background-color: white;
+    border: 2px #00a solid;
+    border-radius: 9px;
+    top: 35%;
+    left: 25%;
+    padding: 2rem;
+    position: absolute;
+    width: 20%;
+    z-index: 3;
+}
+
+#advert {
+    background-color: transparent;
+    top: calc(50% - 3rem);
+    left: calc(50% - 3rem);
+    position: absolute;
+    z-index: 3;
+}
+
+#advert>img {
+    border: 2px #ccc solid;
+    border-radius: 9px;
+    height: 4rem;
+    width: 6rem;
+}
+
+.emergente {
+    background-color: white;
+    border: 2px #00a solid;
+    border-radius: 9px;
+    top: 100px;
+    left: 22%;
+    padding: 0;
+    position: absolute;
+    width: 56%;
+    z-index: 3;
+}
+
+.emergen input {
+    vertical-align: bottom;
+}
+
+#pinnedController {
+    height: 80%;
+    overflow-y: auto;
+    width: 25%;
+}
+
+#pinnedTable th,
+#pinnedTable td {
+    padding: 0.2rem;
+}
+
+.viewRow {
+    background-color: white;
+    border: 0.1rem #0e1e29 solid;
+    /*border-radius: 9px;*/
+    top: 100px;
+    left: 30%;
+    position: absolute;
+    width: 40%;
+    z-index: 3;
+}
+
+#block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.form-buttons {
+    padding: 1rem 1rem;
+}
+
+.viewRow-buttons {
+    padding: 1rem calc(50% - 6.6rem);
+}
+
+#cancel-button {
+    margin-left: 33%;
+    margin-right: 5%;
+}
+
+#cerrar-button {
+    margin-left: 40%;
+    margin-right: 50%;
+}
+
+.hide {
+    display: none !important;
+}
+
+:host ::ng-deep .hide {
+    display: none !important;
+}
+
+:host ::ng-deep .tar {
+    text-align: right !important;
+}
+
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/*
+---------
+
+:host ::ng-deep datatable-body {
+  color: black !important;
+}
+----------
+*/
+
+:host ::ng-deep .ngx-datatable-value-negative {
+    color: red !important;
+}
+
+:host ::ng-deep .ngx-datatable-value-positive {
+    color: green !important;
+}
+
+:host ::ng-deep .progress-linear {
+    display: none !important;
+}
+
+:host ::ng-deep .ngx-datatable.material .datatable-header .datatable-header-cell {
+    font-size: 1rem !important;
+    font-weight: normal !important;
+}
+
+:host ::ng-deep .ngx-datatable.material .datatable-header {
+    overflow: visible !important;
+}
+
+
+/*
+
+-------------
+:host ::ng-deep .ngx-datatable.material {
+  box-shadow: 0 !important;
+}
+
+--------------
+
+*/
+
+:host ::ng-deep .datatable-row-center>.datatable-body-cell:first-child>.datatable-body-cell-label>span {
+    display: none;
+}
+
+:host ::ng-deep .ngx-datatable.material .datatable-header .datatable-header-cell {
+    padding: 0 0.3rem !important;
+}
+
+:host ::ng-deep .datatable-body-cell {
+    padding: 0.1rem 0.3rem !important;
+}
+
+:host ::ng-deep .datatable-row-even {
+    background-color: #eee !important;
+}
+
+:host ::ng-deep .datatable-body-row {
+    cursor: pointer !important;
+}
+
+:host ::ng-deep .datatable-body-row:hover,
+:host ::ng-deep .datatable-body-row:hover .datatable-row-group {
+    background-color: #ccc!important;
+}
+
+:host ::ng-deep .datatable-row-even:hover,
+:host ::ng-deep .datatable-row-even:hover .datatable-row-group {
+    background-color: #ddd !important;
+}
+
+:host ::ng-deep .datatable-body-row.active,
+:host ::ng-deep .datatable-body-row.active:hover,
+:host ::ng-deep .datatable-body-row.active .datatable-row-group,
+:host ::ng-deep .datatable-body-row.active:hover .datatable-row-group {
+    background-color: #bdf!important;
+}
+
+:host ::ng-deep .datatable-header {
+    background-color: #fff !important;
+    border-bottom: 2px solid gold !important;
+    color: black;
+}
+
+:host ::ng-deep .datatable-header-cell {
+    background-color: #fff !important;
+    color: #2e4c75 !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    padding: 0.2rem 0 !important;
+}
+
+@media (max-width: 1790px) {
+    #section-title {
+        font-size: 0.87rem;
+    }
+}
+
+@media (max-width: 1720px) {
+    #section-title {
+        margin-top: 0.75rem;
+        line-height: 1rem;
+        font-size: 0.87rem;
+    }
+}
+
+@media (max-width: 1570px) {
+    #section-title {
+        display: none;
+    }
+    #section-keypad {
+        width: 38.4rem;
+    }
+}
+
+@media (max-width: 1330px) {
+    #s-keypad-abeliano2,
+    #section-search>select,
+    #section-search>input {
+        display: none;
+    }
+    #section-keypad {
+        width: calc(100% - 18rem);
+    }
+    #section-search {
+        width: 12rem;
+    }
+    #filter {
+        height: 4r
+    }
+}
+
+@media (min-width: 1200px) {
+    #section-content>div {
+        float: left;
+        height: 100%;
+    }
+}
+
+@media (max-width: 1199px) {
+    #table,
+    #detail {
+        float: none;
+        width: 100% !important;
+    }
+    #detail {
+        display: block !important;
+    }
+    #holder {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 569px) {
+    #table {
+        height: 65%;
+        margin-bottom: 1.5rem;
+    }
+    #detail {
+        height: calc(35% - 1.5rem);
+    }
+}
+
+@media (max-width: 960px) {
+    #section-keypad {
+        display: none;
+    }
+}
+
+@media (max-width: 736px) {
+    .emergente {
+        left: 7%;
+        width: 368px;
+    }
+}
+
+@media (max-width: 568px) {
+    #table {
+        height: 50%;
+        margin-bottom: 1.5rem;
+    }
+    #detail {
+        height: calc(50% - 1.5rem);
+    }
+}
