@@ -18,9 +18,7 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-    this.singletonService.logout();
-     
-    
+    this.singletonService.logout();   
   }
 
   changeEnlaces() {
