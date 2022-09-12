@@ -3,13 +3,13 @@
     font-size: 1.1rem;
 }*/
 
-#nav > .active-link {
-  background-color: #1e2c45 !important;
-  border-bottom: 2px solid #def !important;
+#nav>.active-link {
+    background-color: #1e2c45 !important;
+    border-bottom: 2px solid #def !important;
 }
 
-#nav > .active-link > a {
-  color: #def !important;
+#nav>.active-link>a {
+    color: #def !important;
 }
 
 .dropdownmenu {
@@ -29,7 +29,8 @@
 }
 
 .dropdownmenu>li:hover {
-    background-color: #1e2c45 !important; /* 1e2c45 */
+    background-color: #1e2c45 !important;
+    /* 1e2c45 */
     /* #2e4c75 */
     cursor: pointer;
 }
@@ -166,7 +167,7 @@
 }
 
 #menu-final a {
-  color: #fff;
+    color: #fff;
 }
 
 @media (max-width: 1470px) {
@@ -176,9 +177,9 @@
 }
 
 @media (max-width: 1280px) {
-  #menu-open {
-      display: none;
-  }
+    #menu-open {
+        display: none;
+    }
 }
 
 
@@ -190,6 +191,7 @@
 /*#dropdownBasic1:hover > .dropdownmenu {
 display:block;
 }*/
+
 
 /*#icon-menu-ingresos-principales {
     background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 0;
@@ -290,152 +292,159 @@ background: url('../../../assets/img/icons/iconos-sprite20b.png') 0 calc(-20px *
 */
 
 .dropdownmenu>li:hover>#icon-menu-0 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 0 !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 0 !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-1 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 1) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 1) !important;
 }
 
-.dropdownmenu>li:hover>#icon-menu-2{
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 2) !important;
+.dropdownmenu>li:hover>#icon-menu-2 {
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 2) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-3 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 3) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 3) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-4 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 4) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 4) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-5 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 5) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 5) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-6 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 6) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 6) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-7 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 7) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 7) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-8 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 8) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 8) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-9 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 9) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 9) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-10 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 10) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 10) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-11 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 11) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 11) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-12 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 12) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 12) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-13 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 13) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 13) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-14 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 14) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 14) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-15 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 15) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 15) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-16 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 16) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 16) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-17 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 17) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 17) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-18 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 18) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 18) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-19 {
-  background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 19) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 19) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-20 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 20) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 20) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-21 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 21) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 21) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-22 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 18) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 18) !important;
 }
 
 .dropdownmenu>li:hover>#icon-menu-23 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 19) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 19) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-24 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 24) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 24) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-25 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 25) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 25) !important;
 }
-.dropdownmenu>li:hover>#icon-menu-26{
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 26) !important;
+
+.dropdownmenu>li:hover>#icon-menu-26 {
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 26) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-27 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 27) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 27) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-28 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 28) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 28) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-29 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 29) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 29) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-30 {
-background: url('/srcassets/img/icons/iconos-sprite20.png') 0 calc(-20px * 30) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 30) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-31 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 31) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 31) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-32 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 32) !important;
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 32) !important;
 }
+
 .dropdownmenu>li:hover>#icon-menu-33 {
-background: url('/src/assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 33);
+    background: url('../../../../../assets/img/icons/iconos-sprite20.png') 0 calc(-20px * 33);
 }
-
-
-
 
 .block {
-  background-color: white;
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 998;
+    background-color: white;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
 }
 
 .viewRow {
-  background-color: white;
-  border: 0.1rem #0e1e29 solid;
-  /*border-radius: 9px;*/
-  top: 275px;
-  left: 27.5%;
-  position: absolute;
-  width: 45%;
-  z-index: 999;
+    background-color: white;
+    border: 0.1rem #0e1e29 solid;
+    /*border-radius: 9px;*/
+    top: 275px;
+    left: 27.5%;
+    position: absolute;
+    width: 45%;
+    z-index: 999;
 }

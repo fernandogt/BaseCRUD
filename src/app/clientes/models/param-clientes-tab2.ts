@@ -10,6 +10,7 @@ export class ParamClientesTab2 implements MinigridInterface {
     tableTitle = 'Histórico de Facturas';
     table: Table;
     search: any[];
+    conf = 0;
     width = '100%';
        
     constructor(data: any[]) {

@@ -16,14 +16,12 @@ import * as XLSX from 'xlsx';
 import { SingletonService } from 'src/app/singleton.service';
 
 
-
-
 @Component({
   selector: 'app-minigrid',
   templateUrl: './minigrid.component.html',
-  styleUrls: ['./minigrid.component.css']
+  styleUrls: ['./minigrid.component.scss']
 })
-export class MinigridComponent implements OnInit {  
+export class MinigridComponent implements OnInit, OnDestroy {  
   
   @ViewChild('datatable', { static: false }) tabla!: DatatableComponent;
   @ViewChild('combo') combo!: ElementRef;
@@ -76,7 +74,7 @@ export class MinigridComponent implements OnInit {
   constructor(private singletonService: SingletonService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
+   
     let o = {};
     /*
     this.filter = {};
@@ -140,7 +138,7 @@ export class MinigridComponent implements OnInit {
   loadGraficas() {
    // this.viewGraficas = true;
   }
- 
+ /*
 // CARGA DE DATOS
 getDatatableData(url: string): void {
   console.log(url);
@@ -174,6 +172,8 @@ getDatatableData(url: string): void {
     }
   );
 }
+*/
+
 /*
   // CAMBIO DE INTERRUPTOR DE SELECCION
   changeMode(busquedaValue, comboValue) {
@@ -707,11 +707,11 @@ private cleanMemory() {
     console.log('unsubsDetail');
   } 
 }
-
-ngOnDestroy() {
-  this.cleanMemory();
-}
 */
+ngOnDestroy() {
+
+}
+
 
 
 

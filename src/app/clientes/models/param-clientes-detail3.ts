@@ -10,6 +10,7 @@ export class ParamClientesDetail3 implements MinigridInterface {
     tableTitle = 'Totales de Contrato';
     table: Table;
     search: any[];
+    conf = 3;
     width = '262px';
        
     constructor(data: any[]) {

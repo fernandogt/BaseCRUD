@@ -1,0 +1,60 @@
+.minigrid {
+    border: 1px solid #888;
+}
+
+:host ::ng-deep .minigrid {
+    // CONFIGURACION GENERAL DEL MINIGRID
+    //------------------------------------------------------------------------------------
+    // clase generica del objeto (minigrid) 
+    /* Titulo, contenedor y celdas del minigrid
+    + Titulo   
+    + Alto del datatable
+    + Campos del datatable (Celda y contenido). El formato negrita para columnas (tipo tabla) o fila (tipo registro) vienen de la estructura Table.
+  */
+    #title {
+        border-bottom: 1px solid #888;
+        background-color: #ededed!important;
+        padding: 2px 3px;
+        font-size: 14px;
+    }
+    .minigrid-datatable {
+        height: 185px !important;
+    }
+    .datatable-header-cell {
+        border-bottom: 1px solid #aaa;
+        color: black !important;
+    }
+    .datatable-header-cell-label {
+        font-weight: bold;
+        font-size: 11px !important;
+    }
+    // Configuraciones generales del Datatable 
+    // fuente de los datos de registros
+    .datatable-summary-row,
+    .datatable-body-cell {
+        font-size: 11px !important;
+    }
+    // registros pares e impares blancos de fondo
+    .datatable-row-even,
+    .datatable-row-odd {
+        background-color: white !important;
+    }
+    // datatable sin sombra
+    .ngx-datatable.material {
+        box-shadow: none;
+    }
+    // clase negrita de librerias internas 
+    .negrita {
+        font-weight: bold !important;
+    }
+    // clase alineacion derecha
+    .tar {
+        text-align: right !important;
+    }
+}
+
+:host ::ng-deep .conf1 {}
+
+:host ::ng-deep .conf2 {}
+
+:host ::ng-deep .conf3 {}

@@ -9,7 +9,7 @@
             [resizeable]="column.resizeable" [sortable]="column.sortable" [summaryFunc]="column.summaryFunc" [draggable]="column.draggable" [canAutoResize]="column.canAutoResize" [frozenLeft]="column.frozenLeft" [frozenRight]="column.frozenRight" [pipe]="column.pipe"
             [cellClass]="column.visible ? column.cellClass : 'hide'" [headerClass]="column.visible ? column.cellClass : 'hide'">
             <ng-template let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <div #card class="datatableRow" (click)="onSel(rowIndex)" (dblclick)="viewRow = true;" data-index="rowIndex">
+                <div #card (click)="onSel(rowIndex)" (dblclick)="viewRow = true;" data-index="rowIndex">
                     {{ value }}
                 </div>
             </ng-template>

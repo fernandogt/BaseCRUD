@@ -1,5 +1,5 @@
 <nav id="menu">
-    <img id="logo-lince-menu" alt="Lince" src="../../../assets/img/logo-lince-menu.png" routerLink="/inicio/m" height="44" width="44" />
+    <img id="logo-lince-menu" alt="Lince" src="../../../assets/img/logo-lince-menu.png" routerLink="/home/m" height="44" width="44" />
     <ul id="nav">
         <li *ngFor="let menuGroup of menu;" [id]="'dropdownBasic-' + menuGroup.name" ngbDropdown class="nav-item" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
             <a>{{menuGroup.title}}</a>

@@ -1,4 +1,4 @@
-<div  #container id="section" (window:resize)="onResize($event)" (mouseMove)="onMouseMove($event)" [ngClass]="{'blur': modal || showAdvert || viewRow }" class="no-select">
+<div #container id="section" (window:resize)="onResize($event)" (mouseMove)="onMouseMove($event)" [ngClass]="{'blur': modal || showAdvert || viewRow }" class="no-select">
     <!-- CABECERA PAG -->
     <div id="section-header">
         <!-- Titulo y navegador-->
@@ -11,7 +11,7 @@
         <div id="section-keypad">
             <div id="s-keypad-crud">
                 <img id="keypad-img1" alt="A" src="../../../assets/aaics/baseline_add_black_24dp.png" height="38" width="38" title="Añadir" class="keypad-icon" />
-                <img id="keypad-img2" alt="M" src="../../../assets/aaics/baseline_create_black_24dp.png" height="38" width="38" title="Modificar" class="keypad-icon"  />
+                <img id="keypad-img2" alt="M" src="../../../assets/aaics/baseline_create_black_24dp.png" height="38" width="38" title="Modificar" class="keypad-icon" />
                 <img id="keypad-img3" alt="E" src="../../../assets/aaics/baseline_remove_black_24dp.png" height="38" width="38" title="Eliminar" class="keypad-icon" />
                 <img id="keypad-img4" alt="V" src="../../../assets/aaics/baseline_visibility_black_24dp.png" height="38" width="38" title="Ver" class="keypad-icon" />
             </div>
@@ -82,22 +82,16 @@
         <!-- CUADRICULA-->
         <div id="table" #table [ngStyle]="{'width': tablaWidth}">
             <!-- barra titulo -->
-            <div id="table-header">{{cSection.tableTitle}} {{cSection.name === 'Comisiones' ? '&nbsp;&nbsp;(Periodo: ' + (filter.fd | fecha) + ' - ' + (filter.fh | fecha) + ')' : ''}}
-                <div class="custom-control custom-switch" style="float: left; padding: 0.2rem 0 0 0; height: 35px;">
-
-                    <input type="checkbox" class="custom-control-input" id="cstomSwitch1" [checked]="mode" (change)="changeMode(busqueda.value, combo.value);" [attr.disabled]="this.mostrarFiltrado ? 'disabled' : null" style="margin: 0.5rem 0;">
-                    <label class="custom-control-label" for="cstomSwitch1" style="position: relative; left: 3rem; font-weight: normal;"></label>
-                    <label for="cstomSwitch1" style="position: relative; left: 3rem; top: -0.4rem; font-weight: normal;">Selección</label>
+            <div id="table-header">
+                <div id="table-header-selection">
+                    <label>Selección</label>
+                    <mat-slide-toggle [color]="'primary'" [checked]="mode" (change)="changeMode(busqueda.value, combo.value);" [attr.disabled]="this.mostrarFiltrado ? 'disabled' : null"></mat-slide-toggle>
                 </div>
-                <div class="custom-control custom-switch" style="float: right; padding: 0.2rem 0 0 0; height: 35px;">
-                    <label style="position: relative; left: -43px; top: -7px; font-weight: normal;">Totales</label>
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1" style="margin: 0.5rem 0;" [checked]="cSection.table.summaryRow" (change)="cSection.table.summaryRow = !cSection.table.summaryRow">
-                    <label class="custom-control-label" for="customSwitch1"></label>
+                <div id="table-header-title">{{cSection.tableTitle}} {{cSection.name === 'Comisiones' ? '&nbsp;&nbsp;(Periodo: ' + (filter.fd | fecha) + ' - ' + (filter.fh | fecha) + ')' : ''}}</div>
+                <div id="table-header-total">
+                    <label>Totales</label>
+                    <mat-slide-toggle [color]="'primary'" [checked]="cSection.table.summaryRow" (change)="cSection.table.summaryRow = !cSection.table.summaryRow"></mat-slide-toggle>
                 </div>
-
-                <!--<span class="switch" style="float: right;"><input type="checkbox" class="switch" id="switch-id">
-                    <label for="switch-id">Small switch</label>
-                </span>-->
             </div>
             <!-- TABLA-->
             <ngx-datatable id="datatable" #datatable class="datatable material expandable" [count]="cSection.table.count" [columnMode]="cSection.table.columnMode" [cssClasses]="cSection.table.cssClasses" [externalPaging]="cSection.table.externalPaging" [externalSorting]="cSection.table.externalSorting"
@@ -223,15 +217,15 @@
                 <div *ngIf="selectedRow" class="detail-fields">
                     <div *ngIf="!showMore" style="font-weight:normal; color: #16bef1; text-align: center; cursor: pointer;" (click)="showDetailData();">Ver más...</div>
                     <div *ngIf="showMore">
-                      <ul ngbNav #nav="ngbNav" class="nav-tabs">
-                        <li ngbNavItem *ngFor="let tab of cSection.detailTabs">
-                          <a ngbNavLink>{{ tab.name }}</a>
-                          <ng-template ngbNavContent>
-                            <app-minigrid *ngFor="let miniT of tab.minigrids" [cSection]="miniT"></app-minigrid>
-                          </ng-template>
-                        </li>
-                      </ul>
-                      <div [ngbNavOutlet]="nav"></div>
+                        <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                            <li ngbNavItem *ngFor="let tab of cSection.detailTabs">
+                                <a ngbNavLink>{{ tab.name }}</a>
+                                <ng-template ngbNavContent>
+                                    <app-minigrid *ngFor="let miniT of tab.minigrids" [cSection]="miniT"></app-minigrid>
+                                </ng-template>
+                            </li>
+                        </ul>
+                        <div [ngbNavOutlet]="nav"></div>
                         <!--<ngb-tabset>
                             <ngb-tab *ngFor="let tab of cSection.detailTabs" [title]="tab.name">
                                 <ng-template ngbTabContent>

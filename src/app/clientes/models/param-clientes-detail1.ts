@@ -10,7 +10,11 @@ export class ParamClientesDetail1 implements MinigridInterface {
     tableTitle = 'Cabecera de Contrato';
     table: Table;
     search: any[];
+    conf = 1;
     width = '402px';
+    formato='R';
+    anombres: string[] = [];
+    awidth: number[] = [];
        
     constructor(data: any[]) {
       
@@ -61,6 +65,7 @@ export class ParamClientesDetail1 implements MinigridInterface {
           )
           
         ];
+        
 
         this.table = new Table(
           ColumnMode.standard,     // ColumnMode

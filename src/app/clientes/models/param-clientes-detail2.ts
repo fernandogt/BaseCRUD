@@ -11,7 +11,10 @@ export class ParamClientesDetail2 implements MinigridInterface {
     tableTitle = 'Detalle de Contrato';
     table: Table;
     search: any[];
+    conf = 2;
     width: string = '400px';
+    anombres: string[] = [];
+    awidth: number[] = [];
        
     constructor(data: any[]) {
         const COLUMNS = [

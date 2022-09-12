@@ -10,6 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FechaPipe } from '../pipes/fecha.pipe';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MinigridComponent } from '../helpers/minigrid/components/minigrid/minigrid.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { SupergridModule } from '../helpers/supergrid/supergrid.module';
+import { MinigridModule } from '../helpers/minigrid/minigrid.module';
 
 @NgModule({
   imports: [
@@ -19,9 +22,11 @@ import { MinigridComponent } from '../helpers/minigrid/components/minigrid/minig
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatSlideToggleModule,
+    SupergridModule,
+    MinigridModule
   ],
-  declarations: [GridClientesComponent, CrudClientesComponent, SupergridComponent, MinigridComponent, FechaPipe],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [GridClientesComponent, CrudClientesComponent]
 })
 export class ClientesModule { }

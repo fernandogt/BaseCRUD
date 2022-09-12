@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
@@ -14,16 +14,21 @@ import { TokenInterceptor } from './auth/interceptors/token.interceptor';
 import { DecimalPipe, registerLocaleData } from '@angular/common';
 import { NgbDateCustomParserFormatter } from './helpers/datepicker/ngb-date-custom-parser-formatter';
 
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+
 //import { PdfmakeModule } from 'ng-pdf-make';
 
 import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuModule } from './helpers/menu/menu.module';
 registerLocaleData(localeEs, 'es', localeEsExtra);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,11 @@ registerLocaleData(localeEs, 'es', localeEsExtra);
     AuthModule,
     HomeModule,
     ClientesModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MenuModule
   ],
   providers: [
     AuthGuard,

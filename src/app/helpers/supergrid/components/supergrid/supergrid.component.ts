@@ -5,6 +5,7 @@ import { take, takeUntil } from 'rxjs/operators';
 import { DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
 import { UntypedFormBuilder, UntypedFormGroup, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 
+
 import { Column } from 'src/app/helpers/datatable/models/column';
 import { SupergridInterface } from '../../interfaces/supergrid.interface';
 
@@ -47,6 +48,15 @@ export class SupergridComponent implements OnInit {
 
   @Output() rowSend = new EventEmitter<any>();
   @Output() tabSend = new EventEmitter<any>();
+
+
+
+  color = 'accent';
+  checked = false;
+  
+    changed(){
+      console.log(this.checked)
+    }
 
   
   message: string = "Hola Mundo!";

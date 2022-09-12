@@ -10,6 +10,7 @@ export class ParamClientesTab1 implements MinigridInterface {
     tableTitle = 'Cabecera de Contrato';
     table: Table;
     search: any[];
+    conf = 0;
     width = '402px';
        
     constructor(data: any[]) {
