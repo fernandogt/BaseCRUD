@@ -42,61 +42,51 @@ export class ParamClientes implements SupergridInterface {
       { name: 'tab4', minigrids: []}
     ];
             
-
+// FILTRADO
     filterFields = [
       { param: 'fd', label: 'Fecha Desde', value: '20210101', type: 'f', list: [], validators: [Validators.required] },
       { param: 'fh', label: 'Fecha Hasta', value: '20990131', type: 'f', validators: [Validators.required], list: [] },
-      { param: 'agrupa',
-        label: 'Agrupación',
+      { param: 'agrupa', label: 'Agrupación',
         list: [
           {value: 'todas', text: 'Todas'},
           {value: 'Servicio Principal Básico', text: 'Servicio Principal Básico'},
           {value: 'Servicio Principal Dúo', text: 'Servicio Principal Dúo'}
         ],
-        type: 'c',
-        value: 'todas',
-        validators: [Validators.required]
+        type: 'c', value: 'todas', validators: [Validators.required]
       },
-      { param: 'formapago',
-        label: 'Forma Pago',
+      { param: 'formapago',label: 'Forma Pago',
         list: [
           {value: 'todas', text: 'Todas'},
           {value: 'Transferencia', text: 'Transferencia'},
           {value: 'Domiciliado', text: 'Domiciliado'}
         ],
-        type: 'c',
-        value: 'todas',
-        validators: [Validators.required]
+        type: 'c', value: 'todas', validators: [Validators.required]
       },
       { param: 'filternif', label: 'NIF' , value: 'todos', type: 't', validators: [], list: [] },
       { param: 'contra', label: 'Contrato' , value: 0, type: 'n', validators: [Validators.required, Validators.min(0)], list: [] },
-      { param: 'tipo',
-        label: 'Tipo',
+      { param: 'tipo', label: 'Tipo',
         list: [
             { value: 'todos', text: 'Todos' },
             { value: 'Residencial', text: 'Residencial' },
             { value: 'Empresa', text: 'Empresa' },
             { value: 'Empleado', text: 'Empleado' }
           ],
-        type: 'c',
-        value: 'todos',
-        validators: [Validators.required]
+        type: 'c', value: 'todos', validators: [Validators.required]
       },
-      { param: 'esta',
-        label: 'Estado',
+      { param: 'esta', label: 'Estado',
         list: [
           {value: 'todos', text: 'Todos los Estados'},
           {value: 'NO COBRADO', text: 'No Cobrado'},
           {value: 'PENDIENTE', text: 'Pendiente'}
         ],
-        type: 'c',
-        value: 'todos',
-        validators: [Validators.required]
+        type: 'c', value: 'todos', validators: [Validators.required]
       }
     ];
   
        
     constructor() {
+
+// CAMPOS DE BUSQUEDA
         this.search = [
           { label: 'Contrato ID', prop: 'contratoID', placeholder: 'Contrato ID'},
           { label: 'TipoCliente', prop: 'tipoCliente', placeholder: 'TipoCliente'},
@@ -111,6 +101,8 @@ export class ParamClientes implements SupergridInterface {
           { label: 'Estado', prop: 'estado', placeholder: 'Estado'},
           { label: 'IBAN  ', prop: 'iban', placeholder: 'IBAN' }
         ];
+        
+// CAMPOS DATAGRID
         const COLUMNS = [
           new Column(
             'ContratoID',  // name
@@ -358,7 +350,7 @@ export class ParamClientes implements SupergridInterface {
               'Precio',  // name
               'precioPrincipal',  // prop
               1,          // flexGrow
-              100,  // minWidth
+              80,  // minWidth
               100,  // maxWidth
               80,   // width
               undefined,  // resizeable
