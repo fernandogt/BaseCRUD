@@ -3,16 +3,21 @@
 
 /* Importing Bootstrap SCSS file. */
 
-// @import '~bootstrap/scss/bootstrap';
-
-/*
+//@import '~bootstrap/scss/bootstrap';
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  margin: 0;
+    margin: 0;
 }
-*/
+
+:host ::ng-deep .dropdown,
+:host ::ng-deep .dropleft,
+:host ::ng-deep .dropright,
+:host ::ng-deep .dropup {
+    position: relative !important;
+}
 
 
 /*

@@ -19,7 +19,7 @@ export class SingletonService {
       name: 'gestion',
       title: 'Gestión',
       submenus: [
-        { name: 'clientes', title: 'Clientes', description: 'CRM y Contratos', icon: 16 },
+        { name: 'clientes', title: 'Clientes', description: 'CRM y Contratos', icon: 16 },// link
         { name: 'ordenes', title: 'Órdenes', description: 'Tareas y Atenciones', icon: 30 },
         { name: 'telefonia', title: 'Telefonía', description: 'Numeración Fija y Móvil', icon: 24 },
         { name: 'ingenieria', title: 'Ingeniería', description: 'Zonas y Estados', icon: 17 },

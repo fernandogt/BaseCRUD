@@ -1,13 +1,15 @@
 <nav id="menu">
     <img id="logo-lince-menu" alt="Lince" src="../../../assets/img/logo-lince-menu.png" routerLink="/home/m" height="44" width="44" />
     <ul id="nav">
-        <li *ngFor="let menuGroup of menu;" [id]="'dropdownBasic-' + menuGroup.name" ngbDropdown class="nav-item" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <li *ngFor="let menuGroup of menu;" [id]="'dropdownBasic-' + menuGroup.name" ngbDropdown class="nav-item dropdown" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
             <a>{{menuGroup.title}}</a>
-            <ul class="dropdownmenu" ngbDropdownMenu container="body" routerLinkActive="active-link">
+            <ul class="dropdownmenu dropdown-menu" ngbDropdownMenu container="body" routerLinkActive="active-link">
                 <ng-container *ngFor="let submenu of menuGroup.submenus;">
-                    <li *ngIf="submenu.name !== 'enlaces'" ngbDropdownItem [routerLink]="['/' + menuGroup.name + '/' + submenu.name]"><img [id]="'icon-menu-' + submenu.icon" [alt]="'Icono' + submenu.title" [ngStyle]="{'background': (iconUrl + ' 0 calc(-20px * ' + submenu.icon + ')') }" src="../../../assets/img/pt.png" height="20" width="20" /><a [routerLink]="['/' + menuGroup.name + '/' + submenu.name]"
+                    <li *ngIf="submenu.name !== 'enlaces'" ngbDropdownItem class="dropdown-item" [routerLink]="['/' + menuGroup.name + '/' + submenu.name]"><img [id]="'icon-menu-' + submenu.icon" [alt]="'Icono' + submenu.title" [ngStyle]="{'background': (iconUrl + ' 0 calc(-20px * ' + submenu.icon + ')') }" src="../../../assets/img/pt.png" height="20" width="20" /><a [routerLink]="['/' + menuGroup.name + '/' + submenu.name]"
                             routerLinkActive="active-link">{{ submenu.title + ' (' + submenu.description + ')' }}</a></li>
-                    <li *ngIf="submenu.name === 'enlaces'" ngbDropdownItem (click)="changeEnlaces();"><img [id]="'icon-menu-' + submenu.icon" [alt]="'Icono' + submenu.title" [ngStyle]="{'background': (iconUrl + ' 0 calc(-20px * ' + submenu.icon + ')') }" src="../../../assets/img/pt.png" height="20" width="20" /><a>{{ submenu.title + (submenu.description && submenu.description !== '' ? (' (' + submenu.description + ')') : '') }}</a></li>
+
+
+                    <li *ngIf="submenu.name === 'enlaces'" ngbDropdownItem class="dropdown-item" (click)="changeEnlaces();"><img [id]="'icon-menu-' + submenu.icon" [alt]="'Icono' + submenu.title" [ngStyle]="{'background': (iconUrl + ' 0 calc(-20px * ' + submenu.icon + ')') }" src="../../../assets/img/pt.png" height="20" width="20" /><a>{{ submenu.title + (submenu.description && submenu.description !== '' ? (' (' + submenu.description + ')') : '') }}</a></li>
                 </ng-container>
             </ul>
         </li>
@@ -23,38 +25,3 @@
         <a routerLink="." target="_blank">[+] Nueva ventana</a>
     </div>
 </nav>
-
-<div *ngIf="enlaces" class="block"></div>
-<!-- ENLACES-->
-<div *ngIf="enlaces" id="enlaces" class="viewRow">
-    <form>
-        <div class="form-buttons row col-12" style="background-color: #def; margin:0 0 0.5rem 0; border-bottom: 1px solid #ddd;">
-            <h4>Enlaces (Internos y Links)</h4>
-        </div>
-        <div style="overflow-y: auto;">
-            <div style="padding: 1rem 2rem;">
-                <h5>Enlaces internos:</h5>
-                <ul style="margin: 0; padding: 0 2rem;">
-                    <li><a routerLink="/consultas/consumobuho" (click)="enlaces = false;">Consumo Telefónico (BUHO)</a></li>
-                    <li><a routerLink="/consultas/consumolince" (click)="enlaces = false;">Consumo Telefónico (LINCE)</a></li>
-                    <li><a routerLink="/consultas/consumocastiphone" (click)="enlaces = false;">Consumo Telefónico (Castiphone)</a></li>
-                    <hr>
-                    <li><a routerLink="/ingresos/prefactura" (click)="enlaces = false;">Prefactura (Domiciliaciones y Transferencias)</a></li>
-                    <li><a routerLink="/ingresos/prefacturalince" (click)="enlaces = false;">Prefactura LINCE (Domiciliaciones y Transferencias)</a></li>
-                    <li><a routerLink="/ingresos/facturas" (click)="enlaces = false;">Facturas (Todas las Naturalezas)</a></li>
-                </ul>
-            </div>
-            <div style="padding: 1rem 2rem;">
-                <h5>Links (Repositorios de Carpetas):</h5>
-                <ul style="margin: 0; padding: 0 2rem;">
-                    <li><span style="font-weight: bold;">Facturaciones Periódicas:</span> \\aguadulce\AplicacionesRed\Reports\FacturacionCablemel\Facturaciones</li>
-                    <li><span style="font-weight: bold;">Cartas de Devoluciones:</span> \\aguadulce\AplicacionesRed\Reports\RelacionesDevoluciones</li>
-                    <li><span style="font-weight: bold;">Indicador de Clientes:</span> \\aguadulce\AplicacionesRed\Reports\Indicadores\Clientes</li>
-                </ul>
-            </div>
-        </div>
-        <div class="viewRow-buttons" style="margin:1rem 0 1rem 0; border-top: 1px solid #ddd; padding: 1rem 2rem; text-align: center;">
-            <button type="submit" class="btn btn-success" (click)="enlaces = false;" style="width: 6rem; margin: 0 auto" autofocus="autofocus">Cerrar</button>
-        </div>
-    </form>
-</div>
