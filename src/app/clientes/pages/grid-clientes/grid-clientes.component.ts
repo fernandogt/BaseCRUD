@@ -166,10 +166,7 @@ export class GridClientesComponent implements OnInit {
   // this.message = $event;
   console.log('ROW_RECEIVE');
 
- 
-
-
- 
+  
 
     let row = $event;
     console.log(row);
